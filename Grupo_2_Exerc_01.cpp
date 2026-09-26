@@ -5,31 +5,44 @@
 main()
 {
 	setlocale(LC_ALL, "Portuguese");
+#include <iostream>
+#include <string> // Necessário para usar o tipo string (opcional para o nome)
 
-	// definição de variáveis
+using namespace std;
 
-	float price_chopp = 18.00, price_pizza = 60.00, price_cobert = 15.00, price_refri360ml = 12.00, price_water = 10.00, value_pessoa = 0, total = 0, porC_gorjeta, value_consum = 0, gorgeta_valor;
-	int qtd_pess, qtd_chopp, qtd_pizza, qtd_cobertura, qtd_refri, qtd_water;
+int main() {
+    
+    float Prec_Chopp = 18.00;
+    float Prec_PizzaMistaG = 65.00;
+    float Prec_Cobertura = 15.00;
+    float Prec_Refrigerante = 12.00;
+    float Prec_Agua = 10.00;
+    float Por_Gorjeta = 0.08; // 8% representado em formato decimal
+    
+    float Valor_Consumo;
+    float Valor_Total;
+    float Valor_Pessoa;
 
-	char pizzariaName[50] = "????????????????";
+    // --- Variáveis de Quantidade (Inteiros) ---
+    int Qtd_pessoas;
+    int Qtd_Chopp
+    int Qtd_PizzaMistaG;
+    int Qtd_Cobertura;
+    int Qtd_Refrigerante;
+    int Qtd_Agua;
 
-	// interface / inputs / outputs
-
-	// ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ?																																												? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ?
-	// ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ?																																												? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ?
-	// ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ?																																												? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ?
-	// ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ?																																												? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ?
-	// ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ?
-
-	// logica
-
-	//! Calculo de valor do consumo = multiplica a quantidade de cada item pelo valor do mesmo e soma armazenando em uma variavel só
-	value_consum = (qtd_chopp * price_chopp) + (qtd_pizza * price_pizza) + (qtd_cobertura * price_cobert) + (qtd_water * price_water) + (qtd_refri * price_refri360ml);
-	porC_gorjeta = 0.08 * 100;							  //! Calculo da porcentagem
-	gorgeta_valor = value_consum * 0.08;				  //! Calculo da % da gorgeta
-	total = value_consum + (value_consum * porC_gorjeta); //! Calculo do valor total a ser pago, incluindo a gorgeta
-
-	value_pessoa = total / qtd_pess; //! Calculo do valor por pessoa da mesa
-
-	return 0;
+    // --- Variável de Texto (String ou Vetor de Char) ---
+    char PizzariaName[50] = "Pizzaria do Bianch"; 
+    
+    printf("Consumo da Mesa");
+    
+    printf("Digite a quantidade de Chopps tomados");
+    scanf("%f", &Qtd_Chopp)
+    
+    printf("Digite a quantidade de PizzasG consumidas");
+    scanf("%f", &Qtd_PizzaMistaG)
+    
+    
+    return 0;
 }
+
