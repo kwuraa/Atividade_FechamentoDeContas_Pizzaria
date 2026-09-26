@@ -35,7 +35,7 @@ Variáveis que armazenarão os resultados das operações matemáticas de fecham
 | Variável        | Tipo    | Valor Inicial | Descrição                                                                          |
 | :-------------- | :------ | :------------ | :--------------------------------------------------------------------------------- |
 | `value_consum`  | `float` | `0`           | Subtotal da conta (soma de todos os itens consumidos, sem a gorjeta).              |
-| `gorgeta_valor` | `float` | não inicial.  | Valor da gorjeta sobre o consumo (`value_consum * porC_gorjeta`).                  |
+| `gorgeta_valor` | `float` | não inicial.  | Valor da gorjeta calculado como 8% do consumo (`value_consum * 0.08`).              |
 | `total`         | `float` | `0`           | Valor total a ser pago: consumo somado à gorjeta (`value_consum + gorgeta_valor`). |
 | `value_pessoa`  | `float` | `0`           | Valor final que cada indivíduo da mesa deverá pagar (`total / qtd_pess`).          |
 
@@ -51,17 +51,22 @@ Variáveis para manipulação de texto.
 
 O código está dividido em três blocos, na ordem:
 
-1. **Definição de variáveis** — declaração e inicialização das constantes do cardápio, das quantidades e das variáveis de cálculo.
-2. **Interface (inputs)** — bloco reservado para a leitura dos dados pelo usuário. _Ainda em construção (contém apenas comentários/placeholders)._
-3. **Lógica** — sequência de cálculos do fechamento da conta:
+1. **Definição de variáveis** — declaração e inicialização dos preços do cardápio, das quantidades e das variáveis de cálculo.
+2. **Interface (inputs)** — apresenta o título e os preços do cardápio; solicita o nome da pizzaria, a quantidade de pessoas e as quantidades de chopps, pizzas, coberturas/bordas, refrigerantes e águas.
+3. **Lógica** — calcula o consumo, a gorjeta, o total da conta e o valor por pessoa.
+4. **Interface (outputs)** — exibe o nome da pizzaria, a quantidade de pessoas, o consumo, a gorjeta, o total e o valor por pessoa.
+
+O nome da pizzaria é lido em um campo de até 49 caracteres, incluindo espaços. As demais entradas são quantidades inteiras.
 
 | Etapa | Operação                                | Fórmula no código                                                                                                                                                    |
 | :---- | :-------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 1     | Valor total do consumo (soma dos itens) | `value_consum = (qtd_chopp * price_chopp) + (qtd_pizza * price_pizza) + (qtd_cobertura * price_cobert) + (qtd_water * price_water) + (qtd_refri * price_refri360ml)` |
 | 2     | Porcentagem da gorjeta                  | `porC_gorjeta = 0.08 * 100`                                                                                                                                          |
-| 3     | Valor da gorjeta                        | `gorgeta_valor = value_consum * porC_gorjeta`                                                                                                                        |
-| 4     | Valor total da conta (com gorjeta)      | `total = value_consum + (value_consum * porC_gorjeta)`                                                                                                               |
+| 3     | Valor da gorjeta (8%)                   | `gorgeta_valor = value_consum * 0.08`                                                                                                                                |
+| 4     | Valor total da conta                    | `total = value_consum + (value_consum * porC_gorjeta)`                                                                                                               |
 | 5     | Valor por pessoa                        | `value_pessoa = total / qtd_pess`                                                                                                                                    |
+
+> **Divergência atual:** `porC_gorjeta` recebe o valor `8`, enquanto `gorgeta_valor` calcula 8% usando `0.08`. A fórmula de `total` ainda multiplica o consumo por `porC_gorjeta`, portanto o total calculado fica em 9 vezes o consumo, apesar de o valor exibido como gorjeta corresponder a 8%.
 
 ## 6. Registro de Alterações
 
@@ -75,3 +80,6 @@ O código está dividido em três blocos, na ordem:
 | 25/09/2026 | `Grupo_2_Exerc_01.cpp` | `porC_gorjeta` deixou de ser inicializada com `0.08` e passou a ser calculada (`0.08 * 100`).             |
 | 25/09/2026 | `Grupo_2_Exerc_01.cpp` | Corrigida a fórmula de `total`: agora soma o consumo com a gorjeta.                                       |
 | 25/09/2026 | `README.md`            | Dicionário de dados atualizado (`price_pizza`, `gorgeta_valor`) e novas seções de estrutura e alterações. |
+| 25/09/2026 | `Grupo_2_Exerc_01.cpp` | Implementadas as entradas do nome da pizzaria, número de pessoas e quantidades dos itens, além da exibição do cardápio e do resumo da conta. |
+| 25/09/2026 | `Grupo_2_Exerc_01.cpp` | Ajustado o cálculo de `gorgeta_valor` para usar `value_consum * 0.08`; a fórmula de `total` ainda usa `porC_gorjeta`. |
+| 25/09/2026 | `README.md`            | Documentadas as entradas e saídas da interface e a divergência atual entre o cálculo da gorjeta e o total. |
