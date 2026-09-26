@@ -26,7 +26,7 @@ main()
 	//! Calculo de valor do consumo = multiplica a quantidade de cada item pelo valor do mesmo e soma armazenando em uma variavel só
 	value_consum = (qtd_chopp * price_chopp) + (qtd_pizza * price_pizza) + (qtd_cobertura * price_cobert) + (qtd_water * price_water) + (qtd_refri * price_refri360ml);
 	porC_gorjeta = 0.08 * 100;							  //! Calculo da porcentagem
-	gorgeta_valor = value_consum * porC_gorjeta;		  //! Calculo da % da gorgeta
+	gorgeta_valor = value_consum * 0.08;				  //! Calculo da % da gorgeta
 	total = value_consum + (value_consum * porC_gorjeta); //! Calculo do valor total a ser pago, incluindo a gorgeta
 
 	value_pessoa = total / qtd_pess; //! Calculo do valor por pessoa da mesa
